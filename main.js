@@ -10,10 +10,9 @@ function resetGame() {
   document.querySelector(".playerChoice").textContent = "";
   document.querySelector(".computerChoice").textContent = "";
   document.querySelector(".reset").style.display = "none";
-}
+};
 
 function startGame() {
-  //play the game until someone wins 5 times
   let imgs = document.querySelectorAll("img");
   imgs.forEach((img) =>
     img.addEventListener("click", () => {
@@ -22,7 +21,7 @@ function startGame() {
       }
     })
   );
-}
+};
 
 function playRound(playerChoice) {
   let wins = checkWins();
@@ -40,7 +39,7 @@ function playRound(playerChoice) {
   if (wins == 5) {
     displayEnd();
   }
-}
+};
 
 function displayEnd() {
   let playerWins = winners.filter((item) => item == "Player").length;
@@ -53,7 +52,7 @@ function displayEnd() {
       "Sorry, the computer won 5 times";
   }
   document.querySelector(".reset").style.display = "flex";
-}
+};
 
 function displayRound(playerChoice, computerChoice, winner) {
   document.querySelector(".playerChoice").textContent = `You Chose: ${
@@ -65,7 +64,7 @@ function displayRound(playerChoice, computerChoice, winner) {
     computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)
   }`;
   displayRoundWinner(winner);
-}
+};
 
 function displayRoundWinner(winner) {
   if (winner == "Player") {
@@ -76,7 +75,7 @@ function displayRoundWinner(winner) {
   } else {
     document.querySelector(".winner").textContent = "The Round was a tie";
   }
-}
+};
 
 function tallyWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
@@ -85,7 +84,7 @@ function tallyWins() {
   document.querySelector(".playerScore").textContent = `Score: ${pWinCount}`;
   document.querySelector(".computerScore").textContent = `Score: ${cWinCount}`;
   document.querySelector(".ties").textContent = `Ties: ${ties}`;
-}
+};
 
 function computerSelect() {
   //todo - update the dom with the computer selection
@@ -96,15 +95,14 @@ function computerSelect() {
   setTimeout(() => {
     document.querySelector(`.${choice}`).classList.remove("active");
   }, 700);
-
   return choice;
-}
+};
 
 function checkWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
   const cWinCount = winners.filter((item) => item == "Computer").length;
   return Math.max(pWinCount, cWinCount);
-}
+};
 
 function checkWinner(choice1, choice2) {
   if (
@@ -118,12 +116,13 @@ function checkWinner(choice1, choice2) {
   } else {
     return "Computer";
   }
-}
+};
 
 function setWins() {
   const pWinCount = winners.filter((item) => item == "Player").length;
   const cWinCount = winners.filter((item) => item == "Computer").length;
   const ties = winners.filter((item) => item == "Tie").length;
-}
+};
+
 startGame();
 

@@ -11,6 +11,12 @@ body {
     text-shadow: 0 0 4px black;
 }
 
+.sectionContainer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
 .choices {
     display: flex;
     width: 80vw;
@@ -26,6 +32,7 @@ body {
     width: auto;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.048);
+    margin: 20px;
     padding: 20px;
     border: solid black 5px;
     border-radius: 10px;
